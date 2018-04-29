@@ -1,4 +1,7 @@
 package com.utility;
+/**
+ * Logger file for debug, info, warning and error
+ * */
 
 public class Logger {
 	
