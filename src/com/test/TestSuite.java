@@ -11,7 +11,7 @@ import com.utility.DriverBase;
 import com.utility.Logger;
 
 public class TestSuite extends DriverBase {
-
+	WebDriver driver = null;
 	@Test(priority = 0, enabled = false)
 	public void browserLaunch() throws Exception {
 		WebDriver driver = setDriver(objectMap.getData("browserName").toUpperCase());
@@ -23,7 +23,10 @@ public class TestSuite extends DriverBase {
 	// Test case to select departure date and month
 	@Test(priority = 1, enabled = true)
 	public void calendarDateSelection() throws Exception {
-		Calendar calendar = new Calendar();
+		driver = setDriver(objectMap.getData("browserName").toUpperCase());
+		driver.get(objectMap.getData("browserURL"));
+		Logger.info("Browser launched");
+		Calendar calendar = new Calendar(driver);
 		calendar.setCalendar(objectMap.getData("month").toUpperCase(), objectMap.getData("date"));
 	}
 }

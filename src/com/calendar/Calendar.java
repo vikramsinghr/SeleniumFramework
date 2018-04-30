@@ -12,12 +12,9 @@ import com.utility.DriverBase;
 import com.utility.Logger;
 
 public class Calendar extends DriverBase {
-	static WebDriver driver = null;
 
 	// Default constructor to initialize driver.
-	public Calendar() throws Exception {
-		driver = setDriver(objectMap.getData("browserName").toUpperCase());
-		driver.get(objectMap.getData("browserURL"));
+	public Calendar(WebDriver driver) throws Exception {
 	}
 
 	/**

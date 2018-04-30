@@ -12,7 +12,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 public class DriverBase {
-	private static WebDriver driver = null;
+	protected static WebDriver driver = null;
 	private static WebDriver result = null;
 	public static ObjectMap objectMap = null;
 
