@@ -4,9 +4,9 @@ package com.utility;
  * Base class to initialize driver.
  * */
 
-import java.io.IOException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -16,11 +16,17 @@ public class DriverBase {
 	private static WebDriver result = null;
 	public static ObjectMap objectMap = null;
 
+	//Code to select browser based on parameter passed
+	/**
+	 * @param{browserName}
+	 * */
 	public static WebDriver setDriver(String browserName) {
 		switch (browserName) {
 		case "CHROME":
 			System.setProperty("webdriver.chrome.driver", Constants.chromePath);
-			driver = new ChromeDriver();
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--disable-notifications ");
+			driver = new ChromeDriver(options);
 			driver.manage().window().maximize();
 			result = driver;
 			return result;
@@ -33,17 +39,17 @@ public class DriverBase {
 		}
 		return null;
 	}
-	
+
+	//Code to  object map file 
 	@BeforeSuite
 	public static ObjectMap initialise() {
-		objectMap = new ObjectMap(System.getProperty("user.dir")+Constants.objectMapPath);
+		objectMap = new ObjectMap(System.getProperty("user.dir") + Constants.objectMapPath);
 		return objectMap;
 	}
-	
-	
-/*	@AfterSuite
+
+	@AfterSuite
 	public static void terminate() {
 		driver.close();
-	}*/
-	
+	}
+
 }
