@@ -26,7 +26,7 @@ public class TestSuite extends DriverBase {
 		driver = setDriver(objectMap.getData("browserName").toUpperCase());
 		driver.get(objectMap.getData("browserURL"));
 		Logger.info("Browser launched");
-		Calendar calendar = new Calendar(driver);
+		Calendar calendar = new Calendar();
 		calendar.setCalendar(objectMap.getData("month").toUpperCase(), objectMap.getData("date"));
 	}
 }

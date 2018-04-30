@@ -1,20 +1,13 @@
 package com.calendar;
 
-/**
- * @author VikramSingh Rajput
- * Calendar class to select date based on month and date.
- * Arguments passed month and date.
- * Logic is to first loop for month and later using for loop to iterate for date.
- * */
-import org.openqa.selenium.WebDriver;
-
 import com.utility.DriverBase;
 import com.utility.Logger;
 
 public class Calendar extends DriverBase {
 
 	// Default constructor to initialize driver.
-	public Calendar(WebDriver driver) throws Exception {
+	public Calendar(){
+		super();
 	}
 
 	/**
