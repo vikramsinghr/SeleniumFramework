@@ -1,11 +1,6 @@
 package com.utility;
-/**
- * @author VikramSingh Rajput
- * Logger file for debug, info, warning and error
- * */
 
 public class Logger {
-	
 	public static void info(String info) {
 		if(Constants.INFO)System.out.println("Info : " + info);
 	}
